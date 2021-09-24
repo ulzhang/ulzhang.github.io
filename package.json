@@ -1,0 +1,22 @@
+{
+  "name": "ulzhang.github.io",
+  "version": "1.0.0",
+  "description": "I want to track the birds",
+  "main": "./scripts/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ulzhang/ulzhang.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ulzhang/ulzhang.github.io/issues"
+  },
+  "homepage": "https://github.com/ulzhang/ulzhang.github.io#readme",
+  "dependencies": {
+    "faunadb": "^4.4.1"
+  }
+}
