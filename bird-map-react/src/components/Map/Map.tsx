@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { LatLngExpression } from "leaflet";
-import { MapContainer, TileLayer, Marker, Tooltip, Polyline } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Tooltip, Polyline, useMap, Popup } from "react-leaflet";
 import { connect } from "react-redux";
 import { setPlacePreviewVisibility, setSelectedPlace } from "../../store/actions";
 import { IState, Place } from "../../store/models";
 import AddMarker from "./AddMarker";
+import { mapboxAPI } from "../../Constants"
+import icon from "../../Constants";
+import L from "leaflet";
 
 import "./Map.css";
 
@@ -15,7 +18,7 @@ const Map = ({
   togglePreview,
   setPlaceForPreview,
 }: any) => {
-  const defaultPosition: LatLngExpression = [48.864716, 2.349]; // Paris position
+  const defaultPosition: LatLngExpression = [30.2672, -97.7431]; // Austin position
   const [polyLineProps, setPolyLineProps] = useState([]);
 
   useEffect(() => {
@@ -24,6 +27,30 @@ const Map = ({
       return prev;
     }, []))
   }, [places]);
+
+  function LocationMarker() {
+    const [position, setPosition] = useState(defaultPosition);
+
+    const map = useMap();
+
+    useEffect(() => {
+      map.locate().on("locationfound", function (e) {
+        setPosition(e.latlng);
+        map.flyTo(e.latlng, map.getZoom());
+        const radius = e.accuracy;
+        const circle = L.circle(e.latlng, radius);
+        circle.addTo(map);
+      });
+    }, [map]);
+
+    return position === null ? null : (
+      <Marker position={position} icon={icon}>
+        <Popup>
+          You are here. <br />
+        </Popup>
+      </Marker>
+    );
+  }
 
   const showPreview = (place: Place) => {
     if (isVisible) {
@@ -53,8 +80,13 @@ const Map = ({
         zoomControl={false}
       >
         <TileLayer
+          url='https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}'
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          maxZoom={18}
+          id='mapbox/streets-v11'
+          tileSize={512}
+          zoomOffset={-1}
+          accessToken={mapboxAPI}
         />
         <Polyline positions={polyLineProps} />
         {places.map((place: Place) => (
@@ -67,6 +99,7 @@ const Map = ({
           </Marker>
         ))}
         <AddMarker />
+        <LocationMarker />
       </MapContainer>
     </div>
   );
