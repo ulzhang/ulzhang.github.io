@@ -37,9 +37,9 @@ const Map = ({
       map.locate().on("locationfound", function (e) {
         setPosition(e.latlng);
         map.flyTo(e.latlng, map.getZoom());
-        const radius = e.accuracy;
-        const circle = L.circle(e.latlng, radius);
-        circle.addTo(map);
+        // const radius = e.accuracy;
+        // const circle = L.circle(e.latlng, radius);
+        // circle.addTo(map);
       });
     }, [map]);
 
@@ -58,7 +58,7 @@ const Map = ({
       setPlaceForPreview(null);
     }
 
-    if (selectedPlace?.title !== place.title) {
+    if (selectedPlace?.location !== place.location) {
       setTimeout(() => {
         showPlace(place);
       }, 400);
@@ -74,15 +74,15 @@ const Map = ({
     <div className="map__container">
       <MapContainer
         center={defaultPosition}
-        zoom={13}
-        scrollWheelZoom={false}
+        zoom={20}
+        scrollWheelZoom={true}
         style={{ height: "100vh" }}
         zoomControl={false}
       >
         <TileLayer
           url='https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}'
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          maxZoom={18}
+          maxZoom={20}
           id='mapbox/streets-v11'
           tileSize={512}
           zoomOffset={-1}
@@ -91,11 +91,11 @@ const Map = ({
         <Polyline positions={polyLineProps} />
         {places.map((place: Place) => (
           <Marker
-            key={place.title}
+            key={place.location}
             position={place.position}
             eventHandlers={{ click: () => showPreview(place) }}
           >
-            <Tooltip>{place.title}</Tooltip>
+            <Tooltip>{place.location}</Tooltip>
           </Marker>
         ))}
         <AddMarker />

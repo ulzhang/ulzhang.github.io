@@ -5,8 +5,9 @@ import {BiArrowBack} from "react-icons/bi"
 import "./Search.css";
 
 const Search = ({ searchIsVisible, places, closeSearch, setSelectedPlace }: any) => {
-
+  console.log(places)
   return (
+   
     <div
       className={`search__container search__container--${
         searchIsVisible && "active"
@@ -18,7 +19,9 @@ const Search = ({ searchIsVisible, places, closeSearch, setSelectedPlace }: any)
       </div>
       <div className="search__list">
         {places.map((place: Place) => (
-        <div key={place.title} className="search__list__item" style={{backgroundImage: `url(${place.picture})`}} onClick={() => setSelectedPlace(place) }>
+        <div key={place.location} className="search__list__item" style={{background: '#00B140'}} onClick={() => setSelectedPlace(place) }>
+          {place.location}
+          {place.date}
         </div>
         ))}
       </div>

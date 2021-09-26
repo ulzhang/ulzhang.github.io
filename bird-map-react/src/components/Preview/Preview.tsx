@@ -14,16 +14,22 @@ const Preview = ({ isVisible, place, closePreview }: any) => {
       <div className="preview__close" onClick={() => closePreview()}>
         <AiFillCloseCircle></AiFillCloseCircle>
       </div>
-      <div
+      {/* <div
         className="preview__picture"
-        style={{ backgroundImage: `url(${place?.picture})` }}
-      ></div>
+        style={{ background: '#00B140' }}
+      ></div> */}
       <div className="preview__description__container">
-        <div className="preview__title">{place?.title}</div>
+        <h1>Location</h1>
+        <div className="preview__location">{place?.location}</div>
+
+        <h1>Date</h1>
+        <div className="preview__date">{place?.date}</div>
+
+        <h1>Description</h1>
         <div className="preview__description">{place?.description}</div>
-        <div style={{display: 'flex'}}>
-          <a className="preview__button" href={place?.seeMoreLink} target="_blank" rel="noreferrer">See more</a>
-        </div>
+
+        <h1>Position</h1>
+        <div className="preview__latlng">{place?.position}</div>
       </div>
     </div>
   );
