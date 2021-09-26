@@ -1,44 +1,22 @@
 {
-  "name": "bird-map-react",
-  "version": "0.1.0",
-  "private": true,
-  "homepage": "http://ulzhang.github.io/bird-map-react",
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
-    "web-vitals": "^1.1.2"
-  },
+  "name": "ulzhang.github.io",
+  "version": "1.0.0",
+  "description": "I want to track the birds",
+  "main": "./scripts/index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ulzhang/ulzhang.github.io.git"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ulzhang/ulzhang.github.io/issues"
   },
-  "devDependencies": {
-    "gh-pages": "^3.2.3"
+  "homepage": "https://github.com/ulzhang/ulzhang.github.io#readme",
+  "dependencies": {
+    "faunadb": "^4.4.1"
   }
 }

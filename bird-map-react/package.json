@@ -1,0 +1,53 @@
+{
+  "name": "bird-map-react",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "http://ulzhang.github.io/bird-map-react",
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "@types/jest": "^27.0.2",
+    "@types/node": "^16.10.1",
+    "@types/react": "^17.0.24",
+    "@types/react-dom": "^17.0.9",
+    "formik": "^2.2.6",
+    "leaflet": "^1.7.1",
+    "react-leaflet": "^3.0.5",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.1.0",
+    "react-scripts": "4.0.3",
+    "react-redux": "^7.2.2",
+    "redux": "^4.0.5",
+    "typescript": "^4.4.3",
+    "web-vitals": "^1.1.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "@types/leaflet": "^1.5.19",
+    "@types/react-redux": "^7.1.12",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-prettier": "^3.3.0",
+    "gh-pages": "^3.2.3",
+    "prettier": "^2.2.1"
+  }
+}
