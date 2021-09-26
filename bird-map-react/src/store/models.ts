@@ -18,9 +18,8 @@ export interface IState {
 }
 
 export interface Place {
-  picture: string;
-  title: string;
-  description: string;
-  seeMoreLink: string;
+  date: string;
   position: LatLngExpression;
+  location: string
+  description: string;
 }
